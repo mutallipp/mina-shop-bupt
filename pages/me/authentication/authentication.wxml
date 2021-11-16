@@ -1,0 +1,80 @@
+<!--pages/me/authentication/authentication.wxml-->
+
+<view class="container_l">
+    <view>
+        <image class="img" src="/images/lunbo.jpg"></image>
+    </view>
+    <view wx:if="{{status==4}}">
+      <form bindsubmit="form" reportSubmit="true">
+      
+     
+            <view class="school">学校</view>
+            <view class="schoolput">
+                <input name='school' placeholder="请输入您所在学校" value="{{school}}"></input>
+            </view>
+            <view class="schoolname">学号</view>
+            <view class="schoolput">
+                <input name='studentID' placeholder="请输入您的学号" value="{{studentID}}"></input>
+            </view>
+            <view class="schoolname">姓名</view>
+            <view class="schoolput">
+                <input name='user_name' placeholder="请输入您的姓名" value="{{name}}"></input>
+            </view>
+            <view class="schoolname">手机号</view>
+            <view class="schoolput">
+                <input name='phone' placeholder="请输入您的姓名" value="{{phone}}"></input>
+            </view>
+            <view class="schoolname">上传资料</view>
+            <view class="promise">
+                <view class="promiseonly">
+                    <image catchtap="uploadSImg" class="upload_img" mode="aspecFill" src="{{cardpics}}"></image>
+                    <canvas canvasId="myCanvas" class="canvas"></canvas>
+                    <view class="promisefont">
+              学生证
+            </view>
+                </view>
+                <view class="promiseonly">
+                    <image catchtap="uploadUImg" class="upload_img" src="{{withcardpics}}"></image>
+                    <canvas canvasId="youCanvas" style="width:100%;height:100%;position:absolute;top:-99999999999em;z-index:-1;opacity:0;"></canvas>
+                    <view class="promisefont">
+              身份证
+            </view>
+                </view>
+            </view>
+            <button data-type="click" formType="submit" class="button">提  交</button>
+      </form>
+    </view>
+    <view class="messagego" wx:if="{{status==1}}">
+        <view class="messagegoicon">
+            <image src="/images/logo.png"></image>
+        </view>
+        <view class="messagegocontent">
+            <text>{{userInfo.realname}} ● {{userInfo.school}}</text>
+            <text>你已成功完成校园认证~~</text>
+        </view>
+        <button bindtap="corp" class="button" style="margin-top:250rpx">重新提交认证</button>
+    </view>
+    <view class="messagego" wx:if="{{status==0}}">
+        <view class="messagegoicon">
+            <image src="/images/waiting.png"></image>
+        </view>
+        <view class="messagegocontent">
+            <text>认证资料已经上传成功</text>
+            <text>我们将在24小时之内完成审核~</text>
+        </view>
+        <button bindtap="corp" class="button" style="margin-top:250rpx">更新认证资料</button>
+    </view>
+    <view class="messagego" wx:if="{{status==2}}">
+        <view class="messagegoicon">
+            <image src="/images/sorry.png"></image>
+        </view>
+        <view class="messagegocontent">
+            <text>很抱歉您没有通过校园认证</text>
+            <text>请重新上传认证资料，如有问题请联系客服~</text>
+        </view>
+        <button bindtap="corp" class="button" style="margin-top:180rpx">重新提交认证</button>
+        <button class="button" openType="contact" style="margin-top:20rpx;background:#fff;color:#f10180;border:1px solid #f10180;">
+            <text>联系客服</text>
+        </button>
+    </view>
+</view>

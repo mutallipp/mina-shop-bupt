@@ -1,0 +1,122 @@
+  <!--轮播图-->
+  <view class="swiper-container">
+    <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+      <block wx:for="{{good.img_url}}" wx:key="id">
+        <swiper-item>
+          <image bindtap="tapBanner" mode="aspectFill" data-src="{{item}}" src="{{item}}" class="slide-image" width="750rpx" height="562.5rpx" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{good.img_url}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+
+\
+    <canvas canvas-id="identify" class="canvas_l"></canvas>
+    <!-- <button bindtap='save2img' class='canvas_button' hidden='{{show_save_img_b}}' >保存图片</button> -->
+
+
+<view class="goods-info">
+    <view class="goods-title">{{good.title}}</view>
+    <view class="goods-price" style="padding-left:35rpx;">¥{{good.new_price}}</view>
+    <view class="goods-price" style="color:#999;font-size:24rpx;vertical-align: middle;text-decoration: line-through;">¥{{good.old_price}}</view>
+    <view class="goods-price" style="color:#999;font-size:24rpx;">浏览{{good.view_count}}次</view>
+    <view class="goods-info-fx">
+      <image src='/images/share.png' />
+      <button  bindtap="share" >分享</button>
+      <text>分享海报</text>
+    </view>
+</view>
+<view class="hengtiao"></view>
+<view class="goods-des-info">
+    <view class="label-title">商品介绍</view>
+    <view class="goods-text">
+        <text>{{good.discreption}}</text>
+      </view>
+</view>
+
+<view class="hengtiao"></view>
+<view class="main">
+    <view bindtap="mianuser" class="mian-img">
+        <image class="mainimg" src="{{good.avatar}}"></image>
+        <!-- <image class="userimg" src="/images/v.png" ></image> -->
+    </view>
+    <view class="main-content">
+        <text class="main-title">{{good.nickname}}</text>
+        <text class="main-name">{{good.school}}</text>
+    </view>
+      <view class="talk">
+        <button bindtap="onbuy" class="{{isbutton?'none':'talking'}}" wx:if="{{good.trading_status=='已被抢'}}">物品交易中</button>
+        <image bindtap="shop" src="/images/message_un.png" style="height:80rpx;width:80rpx;float:right;margin-right:50rpx;margin-top:10rpx" wx:else></image>
+      </view>
+</view>
+<view class="hengtiao"></view>
+
+<view  class='mommen-detail'>
+    <view style="padding:3% 0;border-bottom:2px solid #f3f3f3;">
+        <text class="pingju">留言</text>
+    </view>
+
+    <view class="{{callback?'callback':'clear'}}">
+        <image class="myspeak" src="{{good.avatar}}"></image>
+        <form bindsubmit="reply" reportSubmit="true">
+            <input class="is_liuyan" cursorSpacing="5" maxlength="140" name="content" placeholder="请输入您的留言" placeholderStyle="font-size:30rpx;" value="{{content}}" wx:if="{{reply_to_id?false:true}}"></input>
+            <input bindblur="blurInputEvent" class="is_liuyan" cursorSpacing="5" focus="{{focus}}" maxlength="140" name="content" placeholder="回复{{reply_to}}" placeholderStyle="font-size:30rpx;" value="{{content}}" wx:else></input>
+            <button class="fabu" formType="submit">留言</button>
+        </form>
+    </view>
+
+  <view class="hengtiao"></view>
+
+    <view wx:if="{{comments}}"  style="font-size:32rpx;padding:5% 2%;">
+        <block wx:for="{{comments}}" wx:key="{{item._id}}">
+            <view class='user_pinlu'>
+                <navigator url="../mainuser/mainuser?id={{item.from_member_id}}">
+                    <image class="touxiang" src="{{userInfo.avatarUrl}}"></image>
+                </navigator>
+                <text class="username">
+                    <block wx:if="{{userInfo.nickName}}">{{userInfo.nickName}} 
+                </block>
+                    <block wx:else>name</block>
+                </text>
+            </view>
+            <view bindtap="liuyan" class="messcontent" data-reply_to="{{item}}">
+                <text>{{item.content}}</text>
+            </view>
+            <view class="messtime">
+                <text>{{item.created_time}}</text>
+            </view>
+        </block>
+    </view>
+</view>
+
+
+<!-- botton -->
+<view class="valueview">
+    <view bindtap="backIndex" class="checkbtn">
+        <image src="/images/indexdetail.png"></image>
+        <text>首页</text>
+    </view>
+    <view catchtap="likeGood" class="messagebtn" >
+        <image src="{{good&&good.has_collected?'/images/love_un.png':'/images/love.png'}}"></image>
+        <text>{{good&&good.has_collected?'收藏':'收藏'}}</text>
+    </view>
+    <button class="sharebutton" openType="share">
+        <view class="messagebtn" style="margin-left:0">
+            <image src="/images/share.png"></image>
+            <text>分享</text>
+        </view>
+    </button>
+    <button bindtap="contact" class="button" >联系她</button>
+    <!-- <button bindtap="shop" class="button" wx:elif="{{user.stu_verified=='未认证'}}">立即购买</button>
+    <block wx:else>
+        <button bindtap="onbuy" class="button" wx:if="{{good.trading_status=='已被抢'}}">已被抢</button>
+        <block wx:else>
+            <button bindtap="onbuy" class="button" wx:if="{{good.state=='已下架'}}">已售出</button>
+            <button bindtap="shop" class="button" wx:else>我想要</button>
+        </block>
+    </block> -->
+</view>

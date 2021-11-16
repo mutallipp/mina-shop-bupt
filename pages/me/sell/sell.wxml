@@ -1,0 +1,3 @@
+<!--pages/me/sell/sell.wxml-->
+<import src='/pages/template/buy-sell/buy-sell.wxml' />
+<template is='buy-sell' data="{{currentType,statusType,order_list:good_list,tabClass,tmp_type}}" />

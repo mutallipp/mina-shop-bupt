@@ -1,0 +1,12 @@
+<!-- <view>
+    <image class="shanghua" src="/images/shanghua.png"></image>
+</view> -->
+<view class='contenner'>
+    <navigator url='upload/upload?q=1' class="button"><text>发布商品</text></navigator>
+    <navigator url='upload/upload?q=2'  class="button"><text>我要求购</text></navigator>
+    <!-- <button bindtap="code" class="button">发布书籍</button> -->
+    <view style="font-size:30rpx;text-align:center;margin-top:20rpx;">注：请扫描书籍背面条形码进行发布</view>
+</view>
+<view>
+    <image class="dihua" src="/images/botton_img.png"></image>
+</view>

@@ -1,0 +1,49 @@
+<!--pages/me/member/member.wxml-->
+ <home-user id='shareactionsheet' user_info='{{user_info}}' ></home-user>
+
+ <view style="position:fixed;top:310rpx;">
+    <navigator>
+        <view class="info_list">
+            <text>昵称</text>
+            <image class="right" src="/images/right.png"></image>
+            <text class="right show">{{userInfo.nickName}}</text>
+        </view>
+    </navigator>
+    <navigator>
+        <view class="info_list">
+            <text>性别</text>
+            <image class="right" src="/images/right.png"></image>
+            <text class="right show" wx:if="{{userInfo.gender==1}}">男</text>
+            <text class="right show" wx:if="{{userInfo.gender==2}}">女</text>
+        </view>
+    </navigator>
+    
+    <view style="width:100%;height:4px;background:#eee;"></view>
+    <navigator url="../authentication/authentication">
+        <view class="info_list">
+            <text>校园认证</text>
+            <image class="right" src="/images/right.png"></image>
+            <text class="right show" wx:if="{{status==2}}">已校园认证</text>
+            <text class="right show" wx:if="{{status==3}}">已身份证认证</text>
+            <text class="right show" wx:if="{{status==4}}">已经双认证</text>
+            <text class="right show" wx:elif="{{status==9}}">认证失败</text>
+            <text class="right show" wx:elif="{{status==5}}">认证中</text>
+            <text class="right show" wx:elif="{{status==1}}">未认证</text>
+        </view>
+    </navigator>
+    <view style="width:100%;height:4px;background:#eee;"></view>
+    <view class="biaoqian">
+        <text>自定义标签</text>
+        <view class="title_content">
+            <block wx:for="{{tags}}" wx:key="_id">
+                <view>{{item.tag_name}}</view>
+                <image bindtap="delate" class="close" id="{{item._id}}" src="/images/cha.png"></image>
+            </block>
+            <image catchtap="input" class="add" src="/images/camera.png"></image>
+        </view>
+    </view>
+    <view class="{{block?'block':'none'}}">
+        <input bindblur="bindblur" bindconfirm="bindconfirm" bindtap="inputcontent" class="title_input" cursorSpacing="10" focus="{{focus}}" placeholder="请填写你的标签" value="{{inputcontent}}"></input>
+    </view>
+</view>
+

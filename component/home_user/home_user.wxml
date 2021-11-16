@@ -1,0 +1,9 @@
+<!--component/home_user.wxml-->
+<!-- 头像和背景图 -->
+  <view class='bg' >
+    <image src="{{ user_info.avatarUrl }}"></image>
+  </view>
+  <navigator url="/pages/me/member/member" hover-class="navigator-hover" class="userinfo-l"   > 
+      <image   class="userinfo-avatar" src="{{ user_info.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{ user_info.nickName }}（积分：--）</text>
+  </navigator>

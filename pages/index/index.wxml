@@ -1,0 +1,64 @@
+<import src='/pages/template/top/top.wxml' />
+<view class="page">
+<!-- 学校 -->
+  <template is='top' data="{{location}}"/>
+  <view>
+    <template is='banners' data="{{banners}}"/>
+  </view>
+
+  <view class='lei_list'>
+      <view  class="weui-flex" style="align-items:center;text-align:center;">
+          <view wx:if="{{ldx<4}}" bindtap="goto_detail_list" class="weui-flex__item"  wx:for="{{home_cat_list}}"  wx:for-item="leiItem" wx:key="idx" wx:for-index="ldx" data-goodsId="{{ldx}}" data-Tid="{{leiItem.id}}">
+              <image mode="aspectFit" src="{{leiItem.img_url}}" style="width:90rpx;height:90rpx;"></image>
+              <view class="placeholder" style="font-size:24rpx;color:#666;">{{leiItem.title}}</view>
+          </view>
+      </view>
+      <!-- 分两行 -->
+      <view class="weui-flex" style="align-items:center;text-align:center;">
+          <view wx:if="{{ldx>3}}" bindtap="goto_detail_list" class="weui-flex__item"  wx:for="{{home_cat_list}}"  wx:for-item="leiItem" wx:key="idx" wx:for-index="ldx" data-goodsId="{{ldx}}" data-Tid="{{leiItem.id}}"> 
+              <image mode="aspectFit" src="{{leiItem.img_url}}" style="width:90rpx;height:90rpx;"></image>
+              <view class="placeholder" style="font-size:24rpx;color:#666;">{{leiItem.title}}</view>
+          </view>
+      </view>
+  </view>
+  <!-- navbar内容 -->
+<view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this" wx:for-item="nav">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{nav}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                    <template is="list" data="{{allGoodsList:good_fresh_list}}" />
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                    <template is="list" data="{{allGoodsList:good_free_list}}" />
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                    <template is="list" data="{{allGoodsList:good_need_list}}" />
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- <view class="{{needKnow?'know':false}}">
+    <button wx:if='{{is_auth!=1}}' class="butt"  bindgetuserinfo="bindGetUserInfo" open-type="getUserInfo">
+            <image class="butimg" src="/images/cha.png"></image>
+        </button>
+    <form wx:else bindsubmit="shop" reportSubmit="true">
+        <button class="butt" data-type="click" formType="submit">
+            <image class="butimg" src="/images/cha.png"></image>
+        </button>
+    </form>
+    <image class="img" src="/images/getuserInfo.jpg"></image>
+    <button wx:if='{{is_auth!=1}}' class="buttonstyle" open-type="getUserInfo"
+  bindgetuserinfo="bindGetUserInfo">我知道了</button>
+    <form wx:else bindsubmit="shop" reportSubmit="true" style="text-align:center">
+        <button  class="buttonstyle" data-type="click" formType="submit">我知道了</button>
+    </form>
+</view> -->

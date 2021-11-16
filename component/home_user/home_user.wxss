@@ -1,0 +1,41 @@
+/* component/home_user.wxss */
+.me{
+position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+.userinfo-l {
+  position: absolute;
+  top: 0rpx;
+	display: flex;
+  height: 300rpx;
+	flex-direction: column;
+  /* margin-top: 50rpx; */
+	/* padding: 50rpx 0; */
+  width: 100%;
+	align-items: center;
+}
+
+.bg{
+  height: 300rpx;
+  width: 100%;
+  opacity:0.5;
+  /* background-image:url('https://developers.weixin.qq.com/miniprogram/dev/image/cat/0.jpg?t=19032217'); */
+}
+
+.bg image{
+  height: 100%;
+  width: 100%;
+}
+
+.userinfo-avatar {
+	width: 160rpx;
+	height: 160rpx;
+	margin: 20rpx;
+	border-radius: 50%;
+}
+.userinfo-nickname {
+  margin-top: 20rpx;
+  color:black;
+}

@@ -1,0 +1,21 @@
+<import src='/pages/template/top/top.wxml' />
+<!-- 搜搜 -->
+<template is='top' data="{{navData,location}}"/>
+<!--选项  -->
+<template is='slider' data="{{navData,currentTab}}" />
+<!-- 轮播图 -->
+<template is='banners' data="{{banners}}" />
+
+<!-- 喇叭 -->
+<view style="height:65rpx;" >
+    <view class="shuliang">
+        <image src="/images/hanhua.png" style="width:35rpx;height:35rpx;vertical-align:top;"></image>
+本校有<text class="shuliangnumber">{{schoolnumber}}</text>位同学在二货兔买卖二手
+<text catchtap="joinus" class="joinus">成为校园合伙人〉</text>
+    </view>
+</view>
+
+<!-- 列表 -->
+<view class='top_far'>
+  <template is="list" data="{{allGoodsList:good_list}}" />
+</view>

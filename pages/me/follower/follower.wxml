@@ -1,0 +1,2 @@
+<!--pages/me/follower/follower.wxml-->
+ <home-user  ></home-user>

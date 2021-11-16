@@ -1,0 +1,7 @@
+<!--pages/me/want/want.wxml-->
+<import src='/pages/template/top/top.wxml' />
+<view>
+   <template is="list" data="{{allGoodsList:good_list}}" />
+</view>
+
+

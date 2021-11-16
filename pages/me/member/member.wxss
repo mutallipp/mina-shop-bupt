@@ -1,0 +1,81 @@
+/* pages/me/member/member.wxss */
+
+.info_list {
+    width: 700rpx;
+    margin: 0 20rpx 0 50rpx;
+    height: auto;
+    flex-direction: row;
+    border-bottom: 1rpx solid #e7e7eb;
+    padding-bottom: 15rpx;
+    padding-left: 20rpx;
+    padding-top: 15rpx;
+}
+
+.info_list>image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.right {
+    position: absolute;
+    right: 40rpx;
+    margin-right: 0;
+    margin-top: 5rpx;
+}
+
+.show {
+    margin-right: 50rpx;
+    margin-top: -2rpx;
+}
+
+.title_content {
+    margin-top: 10rpx;
+    width: 93%;
+}
+
+.title_content>view {
+    display: inline-block;
+    font-size: 30rpx;
+    margin: 15rpx;
+    padding: 5rpx 10rpx;
+    border: 1px solid #f10180;
+    color: #f10180;
+    border-radius: 10rpx;
+}
+
+.close {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: -30rpx;
+    margin-top: 0rpx;
+    position: absolute;
+    border-radius: 100%;
+    background: #fff;
+}
+
+.block {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+.title_icon {
+    border: 0;
+    padding: 0;
+}
+
+.title_input {
+    width: 100%;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+    padding: 20rpx 30rpx;
+    background: #fafafa;
+}
+
+.add {
+    width: 60rpx;
+    height: 60rpx;
+    vertical-align: middle;
+}

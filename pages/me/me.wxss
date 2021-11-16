@@ -1,0 +1,93 @@
+/* pages/me/me.wxss */
+.me{
+position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+.userinfo-l {
+  position: absolute;
+  top: 0rpx;
+	display: flex;
+  height: 300rpx;
+	flex-direction: column;
+  /* margin-top: 50rpx; */
+	/* padding: 50rpx 0; */
+  width: 100%;
+	align-items: center;
+}
+
+.bg{
+  height: 300rpx;
+  width: 100%;
+  opacity:0.5;
+  /* background-image:url('https://developers.weixin.qq.com/miniprogram/dev/image/cat/0.jpg?t=19032217'); */
+}
+
+.bg image{
+  height: 100%;
+  width: 100%;
+}
+
+.userinfo-avatar {
+	width: 160rpx;
+	height: 160rpx;
+	margin: 20rpx;
+	border-radius: 50%;
+}
+.userinfo-nickname {
+  margin-top: 20rpx;
+  color:black;
+}
+
+
+
+.version {
+  width:100%;
+  height: 40rpx;
+	line-height: 40rpx;
+	font-size: 24rpx;
+	text-align: center;  
+  padding: 40rpx;
+}
+
+.my-item{
+  position: relative;
+    width: 100%;
+    background: url(http://cdn.static.54php.cn/mina_order/arrow-right.png) no-repeat 750rpx center;
+    background-size: 16rpx auto,750rpx auto;
+    margin: 20rpx 0; 
+    border-bottom: 1px solid #eee;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 50rpx;
+}
+
+.my-item>image{
+  position: absolute;
+  top: 20rpx;
+  right: 100rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.block{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  margin-left: 20rpx;
+}
+
+.block-item{
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+.block-item>image{
+  margin-top: 20rpx;
+  width: 120rpx;
+  height: 70rpx;
+}

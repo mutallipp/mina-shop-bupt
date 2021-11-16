@@ -1,0 +1,90 @@
+<template name='top'>
+  <view class="search">
+      <view catchtap="changschool" class="select">
+          <view class="a">
+              <text>{{location}}</text>
+          </view>
+          <image src="/images/down.png"></image>
+      </view>
+      <image src="/images/search.png"></image>
+      <input catchtap="goToSearch" class="shearch" disabled="true" placeholder="想买点什么呢？" placeholderClass="placeholder"></input>
+  </view>
+</template>
+
+<template name='slider'>
+  <!-- 选项 -->
+  <scroll-view class="nav" scrollLeft="{{navScrollLeft}}" scrollWithAnimation="{{true}}" scrollX="true">
+      <view bindtap="switchNav" class="nav-item {{currentTab==navItem.id?'active':''}}" data-current="{{navItem.id}}" wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+                  {{navItem.title}}
+              </view>
+  </scroll-view>
+</template>
+
+<template name='banners'>
+  <!-- 轮播图 -->
+  <swiper autoplay="auto" bindchange="bindchange" class="swiper" interval="3000" duration="1000">
+      <swiper-item wx:for="{{banners}}" wx:key="unique" >
+          <image bindtap="swipclick" class="image" data-redirect="{{item.redirectTo}}" src="{{item.img_url}}"></image>
+      </swiper-item>
+  </swiper>
+</template>
+
+<template name='list'>
+  <!-- 列表 -->
+    <view class="container_l" >
+        <view class="shop">
+            <view class="shopline" wx:for="{{allGoodsList}}" wx:for-index="idx" >
+                <view>
+                    <image class="userimg" src="{{item.avatar}}"></image>
+                    <!-- <image class="userimg userimgture" src="/images/v.png" ></image> -->
+                    <text class="mysch">{{item.school}}</text>
+                </view>
+                <navigator url="../detail/detail?goodsId={{item.id}}">
+                    <image class="shopli-special" mode="aspectFill" src="{{item.img_url[0]}}"></image>
+                    <!-- <view class="{{item.state=='已下架'?'yes':'no'}}">
+                        <image src="/images/yixiajia.png"></image>
+                    </view> -->
+                </navigator>
+                <!-- <navigator url="../detail/detail?id={{item._id}}" wx:else>
+                    <image class="shopli" mode="aspectFill" src="{{item.gpics[0]}}"></image>
+                    <view class="{{item.state=='已下架'?'yes':'no'}}">
+                        <image src="/images/yixiajia.png"></image>
+                    </view>
+                </navigator> -->
+                <view class="miaoshu">
+                      <view class="miaoshu-one">
+                        <view class="little-one">{{item.title}}</view>
+                        <view class="content-two">
+                            <text  class="newprice">￥<text>{{item.new_price}}</text>
+                            </text>
+                            <text class="oldprice">￥{{item.old_price}}</text>
+                            <view class="content-three">
+                               <image src='/images/see.png'></image>
+                               <text class='content-three-text'>{{item.view_count}}</text>
+                            </view>
+                          
+                        
+                            <!-- <view class="weui-flex">
+                              <view class="weui-flex__item"><view class="placeholder"><image class='bot_icon' src='/images/see.png' ></image></view></view>
+                              <view class="weui-flex__item"><view class="placeholder"><text class='bot_icon'>200</text></view></view>
+                              <view class="weui-flex__item"><view class="placeholder"><image class='bot_icon' src='/images/liuyan.png' ></image></view></view>
+                              <view class="weui-flex__item"><view class="placeholder"><text class='bot_icon'>200</text></view></view>
+                              <view class="weui-flex__item"><view class="placeholder"><image class='bot_icon' src='/images/love.png' ></image></view></view>
+                              <view class="weui-flex__item"><view class="placeholder"><text class='bot_icon'>200</text></view></view>
+                            </view> -->
+                            
+                            <view class="good_time">
+                           {{item.updated_time}}
+                            </view> 
+                        </view>
+
+                      </view>
+                </view>
+            </view>
+        </view>
+        <!-- <view class="{{aItem.goods.length==0?'notview':'hide'}}">
+            <image class="notfound" src="/images/notfound.png"></image>
+            <text>暂无商品，赶紧去发布吧！</text>
+        </view> -->
+    </view>
+</template>

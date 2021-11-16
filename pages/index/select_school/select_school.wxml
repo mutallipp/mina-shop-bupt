@@ -1,0 +1,27 @@
+<view class="Scontainer-l">
+        <view class="top">
+            <image class="search" src="/images/search.png" bindtap='search'></image>
+            <input bindinput="input1" class="input1" confirmType="search" placeholder="请输入你的学校全称" type="text"></input>
+        </view>
+    <view catchtap="peking" class="searchname" data-text="{{h.name}}" wx:for="{{hosList}}" wx:for-item="h" wx:key="h">{{h.name}}
+    </view>
+</view>
+<view class="{{container?'container-l':'none'}}">
+    <view class="locate_layer">
+        <view class="white_/bg gpsline">{{gcity}}<text class="gray_text">{{location}}</text>
+        </view>
+        <view class="{{hot?'hot':'none'}}">
+            <view class="history_title">历史搜索</view>
+            <button bindtap="listenerStorageClear" class="button">清除历史记录</button>
+            <view class="history_content">
+                <view bindtap="peking" data-text="{{item}}" wx:for="{{history_school}}" wx:key="{{item._id}}">{{item}}</view>
+            </view>
+        </view>
+        <view style="background:#fff;margin-top:20rpx;">
+            <text class="marginleft">推荐{{hascity}}</text>
+            <view class="city_wrap">
+                <view catchtap="peking" class="white_bg" data-text="{{item.text}}" wx:for="{{schoolName}}" wx:key="{{item}}">{{item.text}}</view>
+            </view>
+        </view>
+    </view>
+</view>

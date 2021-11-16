@@ -1,0 +1,60 @@
+<template name='buy-sell'>
+    <view class="container-l">
+        <view class="status-box">
+            <view bindtap="statusTap" class="status-label {{index == currentType ? 'active' : ''}}" wx:for-items="{{statusType}}" wx:key="{{index}}" data-index="{{index}}">
+                {{item}}
+            </view>
+        </view>
+        <!-- 如果没有数据就 -->
+        <view class="no-order" wx:if="{{!order_list.length}}">
+            <image src="/images/no-order.png" class="no-order-img"></image>
+            <view class="text">暂无宝贝</view>
+        </view>
+        <view wx:else class="order-list">
+            <view class="a-order" wx:for="{{order_list}}" wx:key="{{index}}" wx:for-item="item">
+                <view class="user-info" data-id="{{item.id}}" bindtap="orderDetail">
+                    <image src='{{item.avatar}}'></image>
+                    <view class="red">{{item.school}}</view>
+                </view>
+                <view class="goods-info"  data-id="{{item.order_sn}}" >
+                    <view class="goods-des">
+                      <text bindtap="orderDetail" >{{item.title}}</text>
+                          <view wx:if="{{tmp_type==1&&currentType ==0 }}">
+                              <text bindtap='is_see' data-index="{{index}}" wx:if="{{!item.is_see}}" class='ca'>擦一擦宝贝</text>
+                              <text wx:else class='yizhuan'>今日已擦</text>
+                          </view>
+                    </view>
+                </view>
+                <view >
+                    <scroll-view class="goods-img-container" scroll-x="true">
+                        <view class="img-box" wx:for="{{item.img_url}}" wx:for-item="itemGood">
+                            <image src="{{itemGood}}" ></image>
+                        </view>
+                    </scroll-view>
+                </view>
+                <view class="price-box">
+                    <view class="total-price">价格：¥ {{item.new_price}}</view>
+                    <view wx:if="{{currentType==0}}">
+                        <view wx:if="{{tmp_type==2}}" class="btn cancel-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='delate' >删除</view>
+                        <view wx:else class="btn cancel-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='xiajia' >下架</view>
+                        <view class="btn topay-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}"data-act='edit'>编辑</view>
+                    </view>
+                    <view wx:if="{{currentType==1}}">
+                        <view wx:if="{{tmp_type==2}}" class="btn topay-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='cSell' >确认收货</view>
+                        <view wx:else class="btn topay-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='cSell' >确认发货</view>
+                    </view>
+                    <view wx:if="{{currentType==2&&tmp_type==2}}">
+                        <view  class="btn topay-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='contact'>联系Ta</view>
+                    </view>
+                    <view wx:if="{{currentType==3}}">
+                        <view class="btn topay-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='delate'>删除</view>
+                    </view>
+                    <view wx:if="{{currentType==4}}">
+                        <view class="btn cancel-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='edit'>重新上架</view>
+                        <view class="btn topay-btn" bindtap="actOrder" data-index="{{index}}" data-id="{{item.id}}" data-act='delate'>删除</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

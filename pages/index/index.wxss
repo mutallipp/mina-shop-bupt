@@ -1,0 +1,10 @@
+@import "/pages/template/top/top.wxss";
+.lei_list{
+  background-color:#FFF;
+  padding:20rpx 0;
+  margin:20rpx 20rpx;
+  border:2rpx solid #eee;
+  border-radius:20rpx;
+
+}
+

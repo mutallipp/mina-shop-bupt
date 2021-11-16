@@ -1,0 +1,44 @@
+<view class='me'>
+<!-- 头像和背景图 -->
+  <view class='bg' >
+    <image src="{{ userInfo.avatarUrl }}"></image>
+  </view>
+  <navigator url="/pages/me/member/member" hover-class="navigator-hover" class="userinfo-l"   > 
+      <image   class="userinfo-avatar" src="{{ userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{ userInfo.nickName }}（积分：--）</text>
+  </navigator>
+<!-- 四个东西 -->
+  <view class="block" >
+      <view bindtap='me_cat' class='block-item' wx:for="{{me_cat_list}}" wx:for-item="me_cat" data-index='{{index}}'>
+          <image src="{{me_cat.img_url}}"></image>
+          <text>{{me_cat.title}}</text>
+      </view>
+  </view>
+  <!-- 下面选项 -->
+  <!-- <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="my-item" >
+    <image src='/images/right.png'></image>
+    <navigator url="/pages/me/member/member" hover-class="navigator-hover">个人资料</navigator>
+  </view>
+  <view class="my-item">
+    <image src='/images/right.png'></image>
+    <navigator url="/pages/me/want/want" hover-class="navigator-hover">我想要的</navigator>
+  </view>
+
+  <view class="my-item">
+    <image src='/images/right.png'></image>
+    <navigator url="/pages/me/score/score" hover-class="navigator-hover">个人积分</navigator>
+  </view> -->
+
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+   <view class="my-item">
+    <image src='/images/right.png'></image>
+    <navigator url="/pages/my/commentList" hover-class="navigator-hover">客服中心</navigator>
+  </view>
+   <view class="my-item">
+    <image src='/images/right.png'></image>
+    <navigator url="/pages/me/help/help" hover-class="navigator-hover">帮助中心</navigator>
+  </view>
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+
+</view>

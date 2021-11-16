@@ -1,0 +1,47 @@
+.shanghua {
+    width: 750rpx;
+    height: 225rpx;
+}
+
+.dihua {
+    width: 100%;
+    height: 312.5rpx;
+    position: fixed;
+    bottom: 0;
+}
+
+.button {
+    width: 80%;
+    margin-top: 50rpx;
+    border: 1px solid #0b94f0;
+    color: #0b94f0;
+    background: #fff;
+    line-height: 2.4;
+    /* margin-left: 10%; */
+    /* display: flex;
+    flex-direction: column;
+    align-self: center; */
+}
+.button>text{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 100%;
+  height: 100%;
+
+}
+
+button::after {
+    border: 0;
+}
+
+.contenner{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items: center;
+  position:  absolute;
+
+}

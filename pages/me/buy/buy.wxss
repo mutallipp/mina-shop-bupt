@@ -1,0 +1,2 @@
+/* pages/me/buy/buy.wxss */
+@import "/pages/template/buy-sell/buy-sell.wxss";

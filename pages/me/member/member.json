@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "个人资料",
+  "usingComponents":{
+      "home-user" : "/component/home_user/home_user" 
+    }
+}

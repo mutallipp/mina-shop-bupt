@@ -1,0 +1,13 @@
+@import '../template/top/top.wxss';
+.container {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    top:330rpx;
+}
+.swiper{
+  margin-top: 160rpx;
+  height: 300rpx;
+}

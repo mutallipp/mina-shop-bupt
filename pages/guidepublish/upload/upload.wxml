@@ -1,0 +1,125 @@
+<view class="page" >
+    <!-- <view class="page__hd">
+        <image  src='/images/lunbo.jpg'></image>
+    </view> -->
+    <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{error}}</view>
+      <form bindsubmit="uploadGoods" >
+          <view class="weui-cells__title">商品名字</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__bd">
+                      <input name="title" value='{{title}}' class="weui-input" placeholder="请输入文本" />
+                  </view>
+              </view>
+          </view>
+  <!-- 详情介绍输入 -->
+          <view class="weui-cells__title">商品介绍</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell">
+                  <view class="weui-cell__bd">
+                      <textarea name="discreption" value='{{discreption}}' class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+                      <view class="weui-textarea-counter">0/200</view>
+                  </view>
+              </view>
+          </view>
+          <!-- 手机号 -->
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd" style="width: 105px">
+                    <view class="weui-select">+86</view>
+                </view>
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                    <input name="phone" class="weui-input" value='{{phone}}' placeholder="请输入号码" />
+                </view>
+            </view>
+        </view>
+  <!-- 分类选择 -->
+          <view class="weui-cells__title">商品选择类型</view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_select">
+                  <view class="weui-cell__bd">
+                      <picker bindchange="bindHomeCatChange"  range="{{home_cat_title}}">
+                          <view class="weui-select">{{secectedHomeCat}}</view>
+                      </picker>
+                  </view>
+              </view>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_select">
+                  <view class="weui-cell__bd">
+                      <picker bindchange="bindCatChange"  range="{{cat_title}}">
+                          <view class="weui-select">{{secectedCat}}</view>
+                      </picker>
+                  </view>
+              </view>
+              
+          </view>
+          <!-- 选择分类 end-->
+
+          <!-- 上传 -->
+          <view wx:if="{{updata_img}}" class="weui-cells">
+              <view class="weui-cell">
+                  <view class="weui-cell__bd">
+                      <view class="weui-uploader">
+                          <view class="weui-uploader__hd">
+                              <view class="weui-uploader__title">图片上传</view>
+                              <view class="weui-uploader__info">{{files.length}}/3</view>
+                          </view>
+                          <view class="weui-uploader__bd">
+                              <view class="weui-uploader__files" id="uploaderFiles">
+                                  <block wx:for="{{files}}" wx:key="*this">
+                                      <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                          <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                      </view>
+                                  </block>
+                              </view>
+                              <view class="weui-uploader__input-box">
+                                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                              </view>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+          <view wx:if="{{goog_status!=3}}">
+              <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell weui-cell_switch">
+                      <view class="weui-cell__bd">是否免费？</view>
+                      <view class="weui-cell__ft">
+                          <switch  checked="{{is_free}}"  bindchange="switchChange" />
+                      </view>
+                  </view>
+              </view>
+
+              <!-- 价格 -->
+              <view class="select_type" wx:if="{{!is_free}}" > 
+                  <view class="gprice">
+                      <text class="newtitle">二手价:</text>
+                      <input value='{{new_price}}' name="new_price" class="newprice" cursorSpacing="5" placeholder="￥0.00" placeholderClass="color:#fcfcfc;font-size:30rpx;" type="digit" ></input>
+                  </view>
+                  <view class="lineheight">
+                      <text class="newtitle">原价:</text>
+                      <input value='{{old_price}}' name="old_price"  class="oldprice" cursorSpacing="5" placeholder="￥0.00" placeholderClass="color:#fcfcfc;font-size:30rpx;" type="digit" ></input>
+                  </view>
+              </view>
+          </view>
+          <view class="hengtiao"></view>
+          <checkbox-group bindchange="bindAgreeChange">
+              <label class="weui-agree" for="weuiAgree">
+                  <view class="weui-agree__text">
+                      <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                      <view class="weui-agree__checkbox-icon">
+                          <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                      </view>
+                      阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                  </view>
+              </label>
+          </checkbox-group>
+
+          <view class="weui-btn-area">
+              <button class="weui-btn" type="primary" formType="submit" >发布</button>
+          </view>
+      </form>
+    </view>
+</view>

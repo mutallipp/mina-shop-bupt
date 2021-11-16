@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/me/me",
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/index/select_school/select_school",
+    "pages/index/search/search",
+    "pages/detail_list/detail_list",
+    "pages/guidepublish/guidepublish",
+    "pages/guidepublish/upload/upload",
+    "pages/me/member/member",
+    "pages/me/like/like",
+    "pages/me/score/score",
+    "pages/me/help/help",
+    "pages/me/sell/sell",
+    "pages/me/buy/buy",
+    "pages/me/want/want",
+    "pages/me/follower/follower",
+    "pages/me/authentication/authentication",
+    "pages/me/home/home",
+    
+    "pages/news/news"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0b94f0",
+    "navigationBarTitleText": "校转赚",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "iconColor": "#F8F8FF",
+    "selectedColor": "#0b94f0",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconColor": "#F8F8FF",
+        "selectedColor": "#0b94f0",
+        "iconPath": "images/index_un.png",
+        "selectedIconPath": "images/index.png"
+      },
+      {
+        "pagePath": "pages/guidepublish/guidepublish",
+        "text": "发布",
+        "iconColor": "#F8F8FF",
+        "selectedColor": "#0b94f0",
+        "iconPath": "images/camera_un.png",
+        "selectedIconPath": "images/camera.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "消息",
+        "iconColor": "#F8F8FF",
+        "selectedColor": "#0b94f0",
+        "iconPath": "images/message_un.png",
+        "selectedIconPath": "images/message.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconColor": "#F8F8FF",
+        "selectedColor": "#0b94f0",
+        "iconPath": "images/user_un.png",
+        "selectedIconPath": "images/user.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
